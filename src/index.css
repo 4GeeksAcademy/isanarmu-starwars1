@@ -1,3 +1,141 @@
-btn{
-    margin-right: auto;
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    margin: 0;
+    background: radial-gradient(circle at top, #141b33 0, #050510 55%, #000000 100%);
+    color: #f8f9fa;
+}
+
+.navbar {
+    background-color: rgb(21, 21, 21);
+}
+
+.nav-link,
+.navbar-brand {
+    color: rgb(242, 218, 0);
+}
+
+.neon-page {
+    background: radial-gradient(circle at top, #141b33 0, #050510 55%, #000000 100%);
+    color: #f8f9fa;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+.neon-title {
+    margin-bottom: 15px;
+    color: hsl(0, 0%, 0%);
+    text-shadow:
+        0 0 5px #00f6ff,
+        0 0 10px #00f6ff,
+        0 0 20px #00f6ff;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.neon-image-wrapper img {
+    border-radius: 12px;
+    border: 2px solid #ffea00;
+    box-shadow:
+        0 0 10px #ffea00,
+        0 0 20px #ffea00,
+        0 0 40px rgba(255, 234, 0, 0.6);
+}
+
+.neon-list .list-group-item {
+    background: transparent;
+    color: #f8f9fa;
+    border-color: rgba(0, 246, 255, 0.6);
+    box-shadow: 0 0 8px rgba(0, 246, 255, 0.35);
+}
+
+.characters-details-page {
+    background-color: #000000;
+    color: #f8f9fa;
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+
+/* cards of characters */
+
+.neon-card {
+    background-color: rgba(5, 5, 20, 0.95);
+    border: 1px solid #00f6ff;
+    box-shadow:
+        0 0 10px rgba(0, 246, 255, 0.4),
+        0 0 25px rgba(0, 246, 255, 0.2);
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.neon-card img {
+  border-bottom: 1px solid rgba(0, 246, 255, 0.4);
+}
+
+.neon-card .card-text {
+  color: #ffea00;
+}
+
+.btn-neon {
+  border: 1px solid #00f6ff;
+  color: #00f6ff;
+  background: transparent;
+  box-shadow: 0 0 8px rgba(0, 246, 255, 0.4);
+  transition: box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.btn-neon:hover,
+.btn-neon:focus {
+  color: #00f6ff;                
+  background: rgba(0, 246, 255, 0.12);
+  box-shadow:
+    0 0 10px #00f6ff,
+    0 0 20px rgba(0, 246, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+/* navbar */
+
+.navbar-neon {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid #00f6ff;
+  box-shadow:
+    0 0 12px rgba(0, 246, 255, 0.5),
+    0 0 30px rgba(0, 246, 255, 0.2);
+}
+
+.navbar-neon .navbar-brand {
+  color: #ffea00;
+  text-shadow:
+    0 0 5px #ffea00,
+    0 0 12px rgba(255, 234, 0, 0.8);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.navbar-neon .nav-link {
+  color: #f8f9fa;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.navbar-neon .nav-link:hover,
+.navbar-neon .nav-link.active {
+  color: #00f6ff;
+  text-shadow:
+    0 0 6px #00f6ff,
+    0 0 15px rgba(0, 246, 255, 0.9);
+}
+
+/* Botón del dropdown con el mismo estilo que btn-neon */
+.navbar-neon .btn-dropdown-neon {
+  border: 1px solid #00f6ff;
+  color: #00f6ff;
+  background: transparent;
+  box-shadow: 0 0 8px rgba(0, 246, 255, 0.4);
+}
+
+.navbar-neon .btn-dropdown-neon:hover {
+  color: #00f6ff;
+  background: rgba(0, 246, 255, 0.12);
 }

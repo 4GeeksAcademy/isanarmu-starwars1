@@ -5,59 +5,71 @@ import { Spinner } from "../components/Spinner.jsx";
 
 
 
-export const Planets = () => {
+export const Films = () => {
 
     const swapiHost = 'https://www.swapi.tech/api'
     const navigate = useNavigate();
     const { store, dispatch } = useGlobalReducer();
-    const [planets, setPlanets] = useState([]);
+    const [films, setFilms] = useState([]);
 
-    const handleDetails = (planet) => {
+    const handleDetails = (film) => {
 
         dispatch({
-            type: 'planet_details',
-            payload: planet
+            type: 'film_details',
+            payload: film
         })
 
-        navigate('/PlanetDetails')
+        navigate('/FilmsDetails')
 
     }
 
-    const getPlanets = async () => {
-        let planet = JSON.parse(localStorage.getItem('planets'))
-        if (!planet) {
+    const getFilms = async () => {
+        const stored = localStorage.getItem("films");  
+        let film = null;
 
-            const uri = `${swapiHost}/planets`
-            const response = await fetch(uri)
-            if (!response.ok) {
-                console.log('Error:', response.status, response.statusText)
-                return
+        if (stored) {
+            try {
+                film = JSON.parse(stored);                  
+            } catch (err) {
+                console.log("films en localStorage está corrupto, lo borro");
+                localStorage.removeItem("films");           
+                film = null;
             }
-            const data = await response.json()
-            localStorage.setItem('planets', JSON.stringify(data.results))
-            planet = data.results
         }
 
-        setPlanets(planet)
-    }
+        if (!film) {
+            const uri = `${swapiHost}/films`;
+            const response = await fetch(uri);
+            if (!response.ok) {
+                console.log("Error:", response.status, response.statusText);
+                return;
+            }
+            const data = await response.json();
+            console.log("FILMS DATA:", data);            
 
-    //esta funcion se esta ejecutando cada vez que muestre este componente
+            film = data.result || data.results;
+            localStorage.setItem("films", JSON.stringify(film));
+        }
+
+        setFilms(film);
+    };
+
     useEffect(() => {
-        getPlanets()
+        getFilms()
     }, [])
 
 
 
     return (
         <div className="container">
-            <h1 className="text-center mt-5 mb-5 neon-title">Planets</h1>
+            <h1 className="text-center mt-5 mb-5 neon-title">Films</h1>
             <div id="galleryRoot" className="g-3 row row-cols-1 row-cols-md-3 row-cols-sm-2">
-                {planets
-                    ? planets.map((item) => (
+                {films
+                    ? films.map((item) => (
                         <div className="col" key={item.uid}>
-                            <div className="card shadow-sm neon-card-starships">
+                            <div className="card shadow-sm neon-card">
                                 <img
-                                    src={`https://raw.githubusercontent.com/weibenfalk/star_wars_visual_encyclopedia/refs/heads/master/public/images/planets/${item.uid}.jpg`}
+                                    src={`https://raw.githubusercontent.com/weibenfalk/star_wars_visual_encyclopedia/refs/heads/master/public/images/films/${item.uid}.jpg`}
                                     className="img-fluid"
                                     alt={item.name}
                                     onError={(e) => {

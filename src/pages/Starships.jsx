@@ -9,7 +9,7 @@ export const Starships = () => {
 
     const swapiHost = 'https://www.swapi.tech/api'
     const navigate = useNavigate();
-    const { dispatch } = useGlobalReducer();
+    const { store, dispatch } = useGlobalReducer();
     const [starships, setStarships] = useState([])
 
     const handleDetails = (ship) => {
@@ -18,14 +18,12 @@ export const Starships = () => {
             type: 'starship_details',
             payload: ship
         })
-
         //navego al componente
-
         navigate('/StarshipsDetails')
     }
 
     const getStarships = async () => {
-        const ships = JSON.parse(localStorage.getItem('starships'))
+        let ships = JSON.parse(localStorage.getItem('starships'))
         console.log("LS starships:", ships);
         if (!ships) {
             const uri = `${swapiHost}/starships`
@@ -56,25 +54,25 @@ export const Starships = () => {
                 {starships
                     ? starships.map((item) => (
                         <div className="col" key={item.uid}>
-                            <div className="card shadow-sm neon-card">
+                            <div className="card shadow-sm neon-card-starships">
                                 <img
-                                    
+
                                     src={`https://github.com/tbone849/star-wars-guide/blob/master/build/assets/img/starships/${item.uid}.jpg?raw=true`}
                                     className="img-fluid"
                                     alt={item.name}
-                                    onError={(e)=>{
+                                    onError={(e) => {
                                         e.target.onerror = null;
-                                        e.target.src= "https://res.cloudinary.com/dra2cr3uw/image/upload/v1765366742/IMAGEN_MUY_MUY_LEJANA_NO_DISPONIBLE_TEMPORALMENTE_pj0r6g.png"
+                                        e.target.src = "https://res.cloudinary.com/dra2cr3uw/image/upload/v1765366742/IMAGEN_MUY_MUY_LEJANA_NO_DISPONIBLE_TEMPORALMENTE_pj0r6g.png"
                                     }}
                                 />
                                 <div className="card-body">
-                                    <p className="card-text mb-3">Name: {item.name}</p>
+                                    <p className="card-text mb-3">{item.name}</p>
                                     <div className="d-flex justify-content-between">
                                         <button
                                             className="btn btn-sm btn-neon d-flex justify-content-center align-items-center"
                                             onClick={() => handleDetails(item)}
                                         >
-                                            Details
+                                           Details 
                                         </button>
 
                                         <Link className="btn btn-neon btn-sm d-flex align-items-center" to="/Starships">

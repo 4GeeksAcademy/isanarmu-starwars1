@@ -24,7 +24,7 @@ export const Characters = () => {
     }
 
     const getCharacters = async () => {
-        const person = JSON.parse(localStorage.getItem('characters'))
+        let person = JSON.parse(localStorage.getItem('characters'))
         if (!person) {
             const uri = `${swapiHost}/people`
             const response = await fetch(uri)
@@ -58,9 +58,13 @@ export const Characters = () => {
                                     src={`https://vieraboschkova.github.io/swapi-gallery/static/assets/img/people/${item.uid}.jpg`}
                                     className="img-fluid"
                                     alt={item.name}
+                                    onError={(e) => {
+                                        e.target.onerror = null;
+                                        e.target.src = "https://res.cloudinary.com/dra2cr3uw/image/upload/v1765366742/IMAGEN_MUY_MUY_LEJANA_NO_DISPONIBLE_TEMPORALMENTE_pj0r6g.png"
+                                    }}
                                 />
                                 <div className="card-body">
-                                    <p className="card-text mb-3">Name: {item.name}</p>
+                                    <p className="card-text mb-3">{item.name}</p>
                                     <div className="d-flex justify-content-between">
                                         <button
                                             className="btn btn-sm btn-neon d-flex justify-content-center align-items-center"

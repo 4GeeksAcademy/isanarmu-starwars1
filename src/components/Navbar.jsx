@@ -38,8 +38,8 @@ export const Navbar = () => {
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" to="/Contacts">
-								Contacts
+							<Link className="nav-link" to="/Films">
+								Films
 							</Link>
 						</li>
 					</ul>
@@ -54,7 +54,7 @@ export const Navbar = () => {
 							>
 								Dropdown
 							</button>
-							<ul className="dropdown-menu dropdown-menu-dark">
+							<ul className="dropdown-menu dropdown-menu-dark dropdown-menu-end neon-dropdown">
 								<li><button className="dropdown-item" type="button">Action</button></li>
 								<li><button className="dropdown-item" type="button">Another action</button></li>
 								<li><button className="dropdown-item" type="button">Something else here</button></li>

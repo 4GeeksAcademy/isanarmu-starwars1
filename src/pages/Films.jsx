@@ -24,36 +24,39 @@ export const Films = () => {
     }
 
     const getFilms = async () => {
-        const stored = localStorage.getItem("films");  
-        let film = null;
-
-        if (stored) {
-            try {
-                film = JSON.parse(stored);                  
-            } catch (err) {
-                console.log("films en localStorage está corrupto, lo borro");
-                localStorage.removeItem("films");           
-                film = null;
-            }
-        }
-
+        let film = JSON.parse(localStorage.getItem('films'))
         if (!film) {
-            const uri = `${swapiHost}/films`;
-            const response = await fetch(uri);
-            if (!response.ok) {
-                console.log("Error:", response.status, response.statusText);
-                return;
-            }
-            const data = await response.json();
-            console.log("FILMS DATA:", data);            
 
-            film = data.result || data.results;
-            localStorage.setItem("films", JSON.stringify(film));
+            const uri = `${swapiHost}/films`
+            const response = await fetch(uri)
+            if (!response.ok) {
+                console.log('Error:', response.status, response.statusText)
+                return
+            }
+            const data = await response.json()
+            localStorage.setItem('films', JSON.stringify(data.result))
+            film = data.result;
         }
 
         setFilms(film);
-    };
+    }
 
+
+    const handleToggleFavorite = (name) => {
+        if (store.favorites.includes(name)){
+            dispatch({
+                type: 'delete_favorite',
+                payload: name
+            });
+            return;
+        }
+
+        dispatch ({
+            type: 'add_favorites',
+            payload: name
+        });
+    };
+    //esta funcion se esta ejecutando cada vez que muestre este componente
     useEffect(() => {
         getFilms()
     }, [])
@@ -71,22 +74,22 @@ export const Films = () => {
                                 <img
                                     src={`https://raw.githubusercontent.com/weibenfalk/star_wars_visual_encyclopedia/refs/heads/master/public/images/films/${item.uid}.jpg`}
                                     className="img-fluid"
-                                    alt={item.name}
+                                    alt={item.title}
                                     onError={(e) => {
                                         e.target.onerror = null;
                                         e.target.src = "https://res.cloudinary.com/dra2cr3uw/image/upload/v1765366742/IMAGEN_MUY_MUY_LEJANA_NO_DISPONIBLE_TEMPORALMENTE_pj0r6g.png"
                                     }}
                                 />
                                 <div className="card-body">
-                                    <p className="card-text mb-3">{item.name} </p>
+                                    <p className="card-text mb-3">{item.properties.title} </p>
                                     <div className="d-flex justify-content-between">
                                         <button
                                             className="btn btn-sm btn-neon d-flex justify-content-center align-items-center"
                                             onClick={() => handleDetails(item)}
                                         >Details</button>
-                                        <Link className="btn btn-neon btn-sm d-flex align-items-center" to="/PlanetDetails" >
-                                            <i className="far fa-heart fa-sm"></i>
-                                        </Link>
+                                        <button className="btn btn-neon btn-sm d-flex align-items-center" onClick={() => handleToggleFavorite(item.properties.title)} >
+                                           <i className={ store.favorites.includes(item.properties.title) ? 'fas fa-heart fa-sm text-warning' : "far fa-heart fa-sm"}></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>

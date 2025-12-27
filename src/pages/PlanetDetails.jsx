@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx"
 
 
-
-
 export const PlanetDetails = () => {
     const { store } = useGlobalReducer();
     const [planetDetails, setPlanetDetails] = useState({})
@@ -42,16 +40,39 @@ export const PlanetDetails = () => {
                     />
                 </div>
                 <div className="col-12 col-md-8">
-                    <p className="fw-bold mb-3 ">{store.currentPlanet.name}</p>
+                    <p className="mb-4 color-text text-uppercase fs-5 ">{store.currentPlanet.name}</p>
                     <ul className="list-group neon-list">
-                        <li className="list-group-item text-light mb-1 ">Name: {planetDetails.name}</li>
-                        <li className="list-group-item text-light mb-1 ">Climate: {planetDetails.climate}</li>
-                        <li className="list-group-item text-light mb-1 ">Surface water: {planetDetails.surface_water}</li>
-                        <li className="list-group-item text-light mb-1 ">Diameter: {planetDetails.diameter}</li>
-                        <li className="list-group-item text-light mb-1 ">Rotation period: {planetDetails.rotation_period}</li>
-                        <li className="list-group-item text-light mb-1 ">Terrain: {planetDetails.terrain}</li>
-                        <li className="list-group-item text-light mb-1 ">Population: {planetDetails.population}</li>
-                        <li className="list-group-item text-light mb-1 ">Gravity: {planetDetails.gravity}</li>
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Name:</span> <span>{planetDetails.name}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Climate:</span> <span>{planetDetails.climate}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Surface water:</span> <span>{planetDetails.surface_water}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Diameter:</span> <span>{planetDetails.diameter}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Rotation period:</span> <span>{planetDetails.rotation_period}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Terrain:</span> <span>{planetDetails.terrain}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Population:</span> <span>{planetDetails.population}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Gravity:</span> <span>{planetDetails.gravity}</span>
+                        </li>
                     </ul>
                 </div>
             </div>

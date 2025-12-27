@@ -41,17 +41,43 @@ export const StarshipsDetails = () => {
                 </div>
 
                 <div className="col-12 col-md-8">
-                    <p className="fw-bold mb-3 ">{store.currentShip.name}</p>
+                    <p className=" mb-4 color-text text-uppercase fs-5 ">{store.currentShip.name}</p>
                     <ul className="list-group neon-list">
-                        <li className="list-group-item text-light mb-1 ">Name: {shipDetails.name}</li>
-                        <li className="list-group-item text-light mb-1 ">Cargo capacity: {shipDetails.cargo_capacity}</li>
-                        <li className="list-group-item text-light mb-1 ">Passengers: {shipDetails.passengers}</li>
-                        <li className="list-group-item text-light mb-1 ">Max atmospheric speed: {shipDetails.max_atmosphering_speed}</li>
-                        <li className="list-group-item text-light mb-1 ">Crew: {shipDetails.crew}</li>
-                        <li className="list-group-item text-light mb-1 ">Model: {shipDetails.model}</li>
-                        <li className="list-group-item text-light mb-1 ">Pilots: {shipDetails.pilots}</li>
-                        <li className="list-group-item text-light mb-1 ">Starship class: {shipDetails.starship_class}</li>
-                        <li className="list-group-item text-light mb-1 ">Manufacturer: {shipDetails.manufacturer}</li>
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Name:</span> <span>{shipDetails.name}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Cargo capacity:</span> <span>{shipDetails.cargo_capacity}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Passengers:</span> <span>{shipDetails.passengers}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Max atmospheric speed:</span> <span>{shipDetails.max_atmosphering_speed}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Crew:</span> <span>{shipDetails.crew}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Model:</span> <span>{shipDetails.model}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Pilots:</span> <span>{shipDetails.pilots}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Starship class:</span> <span>{shipDetails.starship_class}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Manufacturer:</span> <span>{shipDetails.manufacturer}</span>
+                        </li>
                     </ul>
                 </div>
             </div>

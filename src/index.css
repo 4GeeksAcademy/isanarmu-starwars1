@@ -1,10 +1,12 @@
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  margin: 0;
-  background: radial-gradient(circle at top, #141b33 0, #050510 55%, #000000 100%);
-  color: #f8f9fa;
-}
 
+body {
+  background-image: url("https://www.ea.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgalaxy-base-bg.da79970e.jpg&w=2560&q=75");
+  background-size: cover;        
+  background-repeat: no-repeat;   
+  background-position: center;    
+  background-attachment: fixed;  
+  color: #fff;                    
+}
 .navbar {
   background-color: rgb(21, 21, 21);
 }
@@ -22,8 +24,7 @@ body {
   box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
 }
 
-.neon-title {
-  margin-bottom: 15px;
+.neon-letters {
   color: hsl(0, 0%, 0%);
   text-shadow:
     0 0 5px #00f6ff,
@@ -32,6 +33,18 @@ body {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+
+.neon-title {
+  margin-bottom: 15px;
+  color: hsl(0, 0%, 0%);
+  text-shadow:
+    0 0 2px #00f6ff,
+    0 0 4px #00f6ff,
+    0 0 8px #00f6ff;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 
 .neon-image-wrapper img {
   border-radius: 12px;
@@ -60,7 +73,7 @@ body {
 /* cards of characters */
 
 .neon-card {
-  background-color: rgba(5, 5, 20, 0.95);
+  background-color: rgba(1, 1, 14, 0.95);
   border: 1px solid #00f6ff;
   box-shadow:
     0 0 10px rgba(0, 246, 255, 0.4),
@@ -150,22 +163,33 @@ body {
     0 0 15px rgba(0, 246, 255, 0.9);
 }
 
+.navbar-logo {
+  height: 40px;
+  width: auto;
+}
+
 /* Botón dropdown  */
 .navbar-neon .btn-dropdown-neon {
   border: 1px solid #00f6ff;
-  color: #00f6ff;
+  color: #bdfafc;
   background: transparent;
   box-shadow: 0 0 8px rgba(0, 246, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  
+  
 }
 
 .navbar-neon .btn-dropdown-neon:hover {
   color: #00f6ff;
   background: rgba(0, 246, 255, 0.12);
+
 }
 
 .neon-dropdown {
-  background-color: #020617;
+  background-color: rgb(0, 0, 0);
   border: 1px solid #22d3ee;
+  color: #c4fdff;
 }
 
 .neon-dropdown .dropdown-item:hover {
@@ -173,6 +197,57 @@ body {
   color: #020617;
 }
 
+.color-text {
+  color: #bdfcffa2;
+  text-shadow:
+    0 0 2px rgba(38, 241, 255, 0.6),
+    0 0 6px rgba(38, 241, 255, 0.3);
+}
+
+
 .neon-dropdown .dropdown-item {
   color: #e5e7eb;
 }
+
+/* HOME */
+.home-card {
+  height: 420px;
+  /* elige el alto que te guste */
+  overflow: hidden;
+
+}
+
+.home-card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+/* navbar inside  */
+
+.favorites-dropdown{
+  min-width: 260px;
+}
+
+.favorites-item {
+  width: 100%;
+}  
+
+.favorites-text {
+  flex: 1;                    
+  white-space: normal;       
+  word-break: break-word;   
+}
+/* navbar inside end */
+/* footer */
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+}
+
+/* footer end*/

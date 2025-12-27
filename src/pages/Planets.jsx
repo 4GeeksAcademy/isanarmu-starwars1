@@ -41,6 +41,20 @@ export const Planets = () => {
         setPlanets(planet)
     }
 
+    const handleToggleFavorite = (name) => {
+        if (store.favorites.includes(name)){
+            dispatch({
+                type: 'delete_favorite',
+                payload: name
+            });
+            return;
+        }
+
+        dispatch ({
+            type: 'add_favorites',
+            payload: name
+        });
+    };
     //esta funcion se esta ejecutando cada vez que muestre este componente
     useEffect(() => {
         getPlanets()
@@ -55,7 +69,7 @@ export const Planets = () => {
                 {planets
                     ? planets.map((item) => (
                         <div className="col" key={item.uid}>
-                            <div className="card shadow-sm neon-card-starships">
+                            <div className="card shadow-sm neon-card">
                                 <img
                                     src={`https://raw.githubusercontent.com/weibenfalk/star_wars_visual_encyclopedia/refs/heads/master/public/images/planets/${item.uid}.jpg`}
                                     className="img-fluid"
@@ -72,9 +86,9 @@ export const Planets = () => {
                                             className="btn btn-sm btn-neon d-flex justify-content-center align-items-center"
                                             onClick={() => handleDetails(item)}
                                         >Details</button>
-                                        <Link className="btn btn-neon btn-sm d-flex align-items-center" to="/PlanetDetails" >
-                                            <i className="far fa-heart fa-sm"></i>
-                                        </Link>
+                                        <button className="btn btn-neon btn-sm d-flex align-items-center" onClick={() => handleToggleFavorite(item.name)} >
+                                            <i className={store.favorites.includes(item.name) ? 'fas fa-heart fa-sm text-warning' : "far fa-heart fa-sm"}></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +96,7 @@ export const Planets = () => {
                     ))
                     : <Spinner />}
             </div>
-        </div>
+        </div >
 
     )
 }

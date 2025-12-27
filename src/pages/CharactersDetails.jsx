@@ -24,7 +24,7 @@ export const CharactersDetails = () => {
 
     return (
         <div className="container mt-3 neon-page">
-            <h1 className="text-center mb-4 neon-title">Character details</h1>
+            <h1 className="text-center mb-4 color-text text-uppercase">Character details</h1>
 
             <div className="row align-items-center">
 
@@ -41,16 +41,40 @@ export const CharactersDetails = () => {
                 </div>
 
                 <div className="col-12 col-md-8">
-                    <p className="fw-bold mb-3 ">{store.currentCharacter.name}</p>
+                    <p className="mb-4 color-text text-uppercase fs-5 ">{store.currentCharacter.name}</p>
                     <ul className="list-group neon-list">
-                        <li className="list-group-item text-light mb-1 ">Name: {personDetails.name}</li>
-                        <li className="list-group-item text-light mb-1 ">Eye color: {personDetails.eye_color}</li>
-                        <li className="list-group-item text-light mb-1 ">Hair color: {personDetails.hair_color}</li>
-                        <li className="list-group-item text-light mb-1 ">Skin color: {personDetails.skin_color}</li>
-                        <li className="list-group-item text-light mb-1 ">Height: {personDetails.height}</li>
-                        <li className="list-group-item text-light mb-1 ">Mass: {personDetails.mass}</li>
-                        <li className="list-group-item text-light mb-1 ">Birth year: {personDetails.birth_year}</li>
-                        <li className="list-group-item text-light mb-1 ">Vehicles: {personDetails.vehicles}</li>
+                        <li className="list-group-item text-light mb-1 ">
+                            <span className="color-text">Name:</span> <span>{personDetails.name}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Eye color:</span> <span>{personDetails.eye_color}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Hair color:</span> <span>{personDetails.hair_color}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Skin color:</span> <span>{personDetails.skin_color}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Height:</span> <span>{personDetails.height}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Mass:</span> <span>{personDetails.mass}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Birth year:</span> <span>{personDetails.birth_year}</span>
+                        </li>
+
+                        <li className="list-group-item text-light mb-1">
+                            <span className="color-text">Vehicles:</span> <span>{personDetails.vehicles}</span>
+                        </li>
+
                     </ul>
                 </div>
             </div>

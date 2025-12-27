@@ -42,6 +42,22 @@ export const Starships = () => {
         setStarships(ships)
     }
 
+    const handleToggleFavorite = (name) => {
+        if (store.favorites.includes(name)){
+            dispatch({
+                type: 'delete_favorite',
+                payload: name
+            });
+            return;
+        }
+
+        dispatch ({
+            type: 'add_favorites',
+            payload: name
+        });
+    };
+    
+
     useEffect(() => {
         getStarships()
     }, [])
@@ -75,9 +91,9 @@ export const Starships = () => {
                                            Details 
                                         </button>
 
-                                        <Link className="btn btn-neon btn-sm d-flex align-items-center" to="/Starships">
-                                            <i className="far fa-heart fa-sm"></i>
-                                        </Link>
+                                        <button className="btn btn-neon btn-sm d-flex align-items-center" onClick={() => handleToggleFavorite(item.name)} >
+                                            <i className={ store.favorites.includes(item.name) ? 'fas fa-heart fa-sm text-warning' : "far fa-heart fa-sm"}></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
